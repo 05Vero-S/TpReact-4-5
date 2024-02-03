@@ -1,6 +1,7 @@
 import { Container } from "react-bootstrap";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css"
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
 
   </Container>
   <Footer></Footer>
+  
   </>
   );
 }
