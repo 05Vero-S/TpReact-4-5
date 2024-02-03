@@ -4,10 +4,20 @@ import ListaTarea from "./ListaTarea";
 import { useState } from "react";
 
 const FormularioTarea = () => {
-  const [tarea, setTarea] = useState(" ");
+  const [tarea, setTarea] = useState("");
+  const [tareas, setTareas] = useState([]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    setTareas([...tareas, tarea]);
+    //para limpiar el formulario
+    setTarea("");
+  };
+
   return (
     <section>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Form.Group
           className="mb-3 d-flex"
           controlId="exampleForm.ControlInput1"
@@ -17,7 +27,7 @@ const FormularioTarea = () => {
             placeholder="Ej: Tarea 1"
             minLength={3}
             maxLength={60}
-            onChange={(e)=> setTarea(e.target.value) }
+            onChange={(e) => setTarea(e.target.value)}
             value={tarea}
           />
           <Button variant="secondary" className="ms-2" type="submit">
